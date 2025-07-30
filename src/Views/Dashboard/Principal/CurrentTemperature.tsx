@@ -1,8 +1,8 @@
 type CurrentTemperature ={
-    data: any;
+    temperature: number;
 }
-const CurrentTemperature = ({data}:CurrentTemperature) => {
-    let temp = Math.trunc(data?.main?.temp);
+const CurrentTemperature = ({temperature}:CurrentTemperature) => {
+    let temp = Math.trunc(temperature);
     if(temp === undefined ){
         <p>...</p>
     } 

@@ -1,8 +1,9 @@
-import  { useState } from "react";
-import { getWeatherByCity } from "../../API/openWeatherAPI";
+import { useState } from "react";
 import MenuLateralComponent from "./AsideMenu/AsideMenuComponent"
 import PrincipalApp from "./Principal/PrincipalApp";
 import SearchBarComponent from "./SearchBarComponent";
+import type { dashboardDTO } from "../../types/dashboard";
+import { getWeatherData } from "../../services/dashboardService";
 
 type DashboarAppProps = {
   logoWeather: string;
@@ -12,16 +13,19 @@ type DashboarAppProps = {
   iconeProfile: string;
   searchIcon: string;
   climateCondition: string;
-
 }
 
 
 const DashboarApp = ({ logoWeather, iconeCidades, iconeConfig, iconeMap, iconeProfile, searchIcon, climateCondition, }: DashboarAppProps) => {
-  const [weatherData, setWeatherData] = useState("");
+  const [overviewData, setOverviewData] = useState<dashboardDTO | null>(null);
   const handleSearch = async (city: string) => {
-    const data = await getWeatherByCity(city);
-    setWeatherData(data);
-    console.log(data);
+
+    try {
+      const fetchData = await getWeatherData(city);
+      setOverviewData(fetchData)
+    } catch (error) {
+      console.error(error)
+    }
   }
   return (
     <div className="bg-bg-dashboard-home h-screen overflow-hidden grid  grid-cols-[120px_1fr_400px]">
@@ -39,8 +43,13 @@ const DashboarApp = ({ logoWeather, iconeCidades, iconeConfig, iconeMap, iconePr
           onSearch={handleSearch}
         />
         <PrincipalApp
-          weatherData = {weatherData}
-          climateCondition={climateCondition}
+          localName={overviewData?.localName || "Waiting"}
+          countryName={overviewData?.countryName || "Waiting"}
+          probabilityOfPrecipitation={overviewData?.probabilityOfPrecipitation || 0o0}
+          description={overviewData?.description || "Waiting"}
+          temperature={overviewData?.temperature || 0o0}
+          climateCondition="./src/assets/climateCondition.png"
+
         />
       </div>
 

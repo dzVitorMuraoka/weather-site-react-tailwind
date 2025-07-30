@@ -3,22 +3,31 @@ import CurrentTemperature from "./CurrentTemperature"
 import PrincipalInformations from "./PrincipalInformations"
 type PrincipalProps = {
   climateCondition: string;
-  weatherData: any;
+  localName: string;
+  description: string;
+  temperature: number;
+  probabilityOfPrecipitation: number;
+  countryName: string;
+
 }
-const Principal = ({climateCondition, weatherData}:PrincipalProps) => {
+const Principal = ({climateCondition, localName, description, temperature, probabilityOfPrecipitation, countryName}:PrincipalProps) => {
   return (
     <div className="flex ">
       <div className="flex-auto space-y-16 mx-5">
         <PrincipalInformations 
-        data={weatherData}
+        localName={localName}
+        countryName={countryName}
+        pop = {probabilityOfPrecipitation}
+
         />
          <CurrentTemperature 
-         data={weatherData}
+         temperature={temperature}
          />
       </div>
-      <div className="flex-1">
+      <div className="flex-1 flex justify-center w-min">
       <ClimateIconAndDescription
-      climateCondition={climateCondition}
+      climateCondition={`./src/assets/climateCondition.png`}
+      description= {description}
       /> 
       </div>
     </div>

@@ -2,16 +2,18 @@
 
 
 type PrincipalInformationsProps = {
-    data: any;
+    localName: string;
+    countryName: string;
+    pop: number;
 }
-const PrincipalInformations = ({ data }: PrincipalInformationsProps) => {
+const PrincipalInformations = ({ localName, countryName, pop }: PrincipalInformationsProps) => {
     return (
         <div className="">
             <h1 className="flex items-baseline text-white font-bold text-4xl">
-                {data.name}
-                <span className="mx-5 text-white text-base font-light align-baseline"> Brasil </span>
+                {localName || "Carregando"}
+                <span className="mx-5 text-white text-base font-light align-baseline">{countryName}</span>
             </h1>
-            <span className="inline-block mt-4 text-base font-normal text-white">Chance de chuva: 10%</span>
+            <span className="inline-block mt-4 text-base font-normal text-white">Probabilidade de chuva: {pop}%</span>
         </div>
 
 
