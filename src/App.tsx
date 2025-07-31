@@ -11,6 +11,10 @@ import iconeMap from './assets/iconeMap.png'
 import iconeProfile from './assets/iconProfile_darkmode.png'
 import searchIcon from './assets/searchIcon.png'
 import climateCondition from "./assets/climateCondition.png"
+import humidityIcon from "./assets/humidity.png"
+import uvIcon from './assets/uvIcon.png'
+import sunsetIcon from './assets/sunsetIcon.png'
+import airQualityIcon from './assets/airQualityIcon.png'
 const App = () => {
   return (
     <Router>
@@ -25,6 +29,10 @@ const App = () => {
                     iconeProfile = {iconeProfile}
                     searchIcon={searchIcon}
                     climateCondition={climateCondition}
+                    humidityIcon={humidityIcon}
+                    uvIcon={uvIcon}
+                    sunsetIcon={sunsetIcon}
+                    airQualityIcon = {airQualityIcon}
         />}/>
      </Routes>
 
