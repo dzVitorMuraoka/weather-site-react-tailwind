@@ -18,13 +18,13 @@ function toUpperCaseFirstLetter(text:string):string{
 
 
   return (
-    <div className="">
-    <div  className="">
-     <img className="w-44 h-44"
+   
+    <div  className="flex-col flex items-center ">
+     <img className="size-44"
      src={climateCondition}
      /> 
-     <span className="text-base text-white font-normal">{toUpperCaseFirstLetter(description)}</span>
-    </div>
+     <span className="text-center text-white font-normal">{toUpperCaseFirstLetter(description)}</span>
+   
   </div>
   )
 

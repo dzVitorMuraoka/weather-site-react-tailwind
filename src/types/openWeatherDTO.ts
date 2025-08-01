@@ -2,4 +2,5 @@
     countryCode: string;
     description: string;
     localName: string;
+    sunset:number;
 }

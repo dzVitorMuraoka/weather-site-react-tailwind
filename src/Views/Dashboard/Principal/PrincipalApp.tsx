@@ -24,7 +24,7 @@ const Principal = ({climateCondition, localName, description, temperature, proba
          temperature={temperature}
          />
       </div>
-      <div className="flex-1 flex justify-center w-min">
+      <div className="">
       <ClimateIconAndDescription
       climateCondition={`./src/assets/climateCondition.png`}
       description= {description}

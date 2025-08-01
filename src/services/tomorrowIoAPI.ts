@@ -13,7 +13,24 @@ const json = await response.json()
     return{
         temperature:json.timelines.minutely[0].values.temperature ,
         probabilityOfPrecipitation: json.timelines.minutely[0].values.precipitationProbability,
-        lat: json.location.lat,
-        lon:json.location.lon
+        humidity: json.timelines.minutely[0].values.humidity,
+        temperatureApparent: json.timelines.minutely[0].values.temperatureApparent,
+        uvIndex: json.timelines.minutely[0].values.uvIndex
     }
+}
+
+export function degreesOfUV(uvIndex:number):string{
+  if(uvIndex>=0 && uvIndex<= 2){
+    return 'Baixo';
+  } else if(uvIndex>=3 && uvIndex<=5){
+    return 'Moderado';
+  } else if(uvIndex>=6 && uvIndex<=7){
+    return 'Alto';
+  } else if(uvIndex>=8 && uvIndex<=10){
+    return 'Muito alto';
+  } else if(uvIndex>=11){
+    return 'Extremo';
+  } else{
+    return 'Valor inválido'
+  }
 }

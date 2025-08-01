@@ -33,6 +33,8 @@ const App = () => {
                     uvIcon={uvIcon}
                     sunsetIcon={sunsetIcon}
                     airQualityIcon = {airQualityIcon}
+                    sun = {climateCondition}
+                    forecastCondition={climateCondition}
         />}/>
      </Routes>
 

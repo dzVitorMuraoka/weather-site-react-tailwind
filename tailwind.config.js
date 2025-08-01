@@ -14,7 +14,8 @@ module.exports = {
         'forgotfulness': '#0063F6',
         'buttonSubmit': '#564AFF',
         'bg-dashboard-home': '#232041',
-        'bg-containers': '#2E2A68'
+        'bg-containers': '#2E2A68',
+        'daily-forecast-item': '#654DEF'
       }
     },
   },
