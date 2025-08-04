@@ -12,6 +12,11 @@ type formattedHourlyForecast = {
   time: string;
   temperature: number;
 };
+type DailyForecast = {
+  time: string;
+  tempMax: number;
+  tempMin: number;
+};
 type DashboarAppProps = {
   logoWeather: string;
   iconeCidades: string;
@@ -43,9 +48,9 @@ const DashboarApp = ({
   sunsetIcon,
   searchIcon,
   humidityIcon,
-  
 }: DashboarAppProps) => {
   const [overviewData, setOverviewData] = useState<dashboardDTO | null>(null);
+  const [formattedDailyForecast, setDaily] = useState<DailyForecast[]>([]);
   const [formattedHourlyForecast, setFormatted] = useState<
     formattedHourlyForecast[]
   >([]);
@@ -61,6 +66,14 @@ const DashboarApp = ({
         };
       });
 
+      const dailyForecastHandle = fetchData.dailyForecast.map((item) => {
+        return {
+          time: formatWeekday(item.time),
+          tempMax: Math.trunc(item.values.temperatureMax),
+          tempMin: Math.trunc(item.values.temperatureMin),
+        };
+      });
+      setDaily(dailyForecastHandle);
       setFormatted(forecastHandle);
     } catch (error) {
       console.error(error);
@@ -72,6 +85,24 @@ const DashboarApp = ({
     const localHour = date.getHours();
     return `${localHour}h`;
   }
+
+  function formatWeekday(dailyForecast: string) {
+    const portugueseWeekdays = [
+      "Dom",
+      "Seg",
+      "Ter",
+      "Qua",
+      "Qui",
+      "Sex",
+      "Sab",
+    ];
+
+    const date = new Date(dailyForecast);
+    const weekdayName = portugueseWeekdays[date.getUTCDay()];
+
+    return weekdayName;
+  }
+
   return (
     <div className="bg-bg-dashboard-home h-screen overflow-hidden grid  grid-cols-[120px_1fr_400px]">
       <MenuLateralComponent
@@ -102,16 +133,18 @@ const DashboarApp = ({
           humidity={overviewData?.humidity}
           uvIndex={overviewData?.uvIndex}
           temperatureApparent={overviewData?.temperatureApparent}
-          uvDegree = {overviewData?.uvDegree}
-          sunset = {overviewData?.sunset}
-          aqi = {overviewData?.airQuality}
+          uvDegree={overviewData?.uvDegree}
+          sunset={overviewData?.sunset}
+          aqi={overviewData?.airQuality}
         />
 
         <HourlyForecast forecastArray={formattedHourlyForecast} sun={sun} />
       </div>
 
       <div className="py-4">
-        <DailyForecastsContainer forecastCondition={forecastCondition} />
+        <DailyForecastsContainer forecastCondition={forecastCondition}
+        dailyArray={formattedDailyForecast}
+         />
       </div>
     </div>
   );
