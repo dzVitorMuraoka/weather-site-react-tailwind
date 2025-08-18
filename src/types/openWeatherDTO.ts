@@ -3,4 +3,5 @@
     description: string;
     localName: string;
     sunset:number;
+    sunrise:number;
 }

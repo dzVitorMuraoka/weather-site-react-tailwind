@@ -7,5 +7,6 @@ export interface dailyEntryForecastDTO {
   values: {
     temperatureMax: number;
     temperatureMin: number;
+    weatherCodeMax: number;
   };
 }

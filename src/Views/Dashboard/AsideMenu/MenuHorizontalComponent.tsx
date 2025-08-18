@@ -10,8 +10,8 @@ type MenuLateralProps = {
 
 const MenuLateralComponent = ({ logoWeather, iconeCidades, iconeConfig, iconeMap, iconeProfile }: MenuLateralProps) => {
   return (
-    <div className="flex flex-row custom-1100:flex-col custom-1100:px-2 custom-xl:flex-col justify-center w-full custom-xl:w-min px-8">
-      <aside className="bg-bg-containers flex flex-row items-center justify-around w-full  max-w-[800px]  gap-4 h-min custom-1100:flex  custom-1100:w-16 custom-1100:flex-col custom-xl:gap-16 rounded-lg custom-1100:py-20 ">
+    <div className="flex flex- justify-center w-min h-screen px-8">
+      <aside className="bg-bg-containers w-16 h-min flex flex-col items-center gap-16 rounded-lg py-20">
 
         <MenuIconComponent src={logoWeather} />
         <MenuIconComponent src={iconeCidades} />

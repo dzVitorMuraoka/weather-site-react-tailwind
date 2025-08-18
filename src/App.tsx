@@ -15,6 +15,7 @@ import humidityIcon from "./assets/humidity.png"
 import uvIcon from './assets/uvIcon.png'
 import sunsetIcon from './assets/sunsetIcon.png'
 import airQualityIcon from './assets/airQualityIcon.png'
+import pressureIcon from './assets/pressao_atmosferica.svg'
 const App = () => {
   return (
     <Router>
@@ -33,6 +34,7 @@ const App = () => {
                     uvIcon={uvIcon}
                     sunsetIcon={sunsetIcon}
                     airQualityIcon = {airQualityIcon}
+                    pressureIcon = {pressureIcon}
                     sun = {climateCondition}
                     forecastCondition={climateCondition}
         />}/>

@@ -1,33 +1,33 @@
 type DailyForecastItemProps = {
-    forecastCondition: string;
-    tempMax: number;
-    tempMin: number;
-    day:string;
-}
-const DailyForecastItem = ({ forecastCondition, tempMax, tempMin, day }: DailyForecastItemProps) => {
-    return (
-        <div>
-            <div className="bg-daily-forecast-item/10 w-full h-min rounded-lg">
-                <div className="flex items-center justify-center gap-6 py-1">
-                    <span className="text-white text-xl font-medium mr-6">{day}</span>
+  icon: string;
+  tempMax: number;
+  tempMin: number;
+  day: string;
+};
+const DailyForecastItem = ({
+  icon,
+  tempMax,
+  tempMin,
+  day,
+}: DailyForecastItemProps) => {
+  return (
+    <div className="bg-daily-forecast-item/10 w-auto h-min rounded-lg">
+      <div className="grid grid-cols-3 items-center justify-center">
+        <span className="text-white text-xl font-medium mx-4">{day}</span>
 
-                    <img className="w-16 h-16"
-                        src={forecastCondition}
-                    />
-                    <div>
-                        <span className="text-white text-xl font-semibold">{tempMax}</span>
-                        <span className="text-white text-xl">/</span>
-                        <span className="text-white text-xl text-normal">{tempMin}</span>
-                    </div>
-
-
-
-                </div>
-
-
-            </div>
+        <div className="justify-self-center">
+          <img className="w-16 h-16 mx-3" src={icon} />
         </div>
-    )
-}
 
-export default DailyForecastItem
+        <div className="flex justify-end space-x-1 mr-2">
+          <span className="text-white text-lg font-semibold">{tempMax}</span>
+          <span className="text-white text-lg">/</span>
+          <span className="text-white text-lg text-normal">{tempMin}</span>
+          <span className="text-white text-lg font-semibold">°C</span>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default DailyForecastItem;

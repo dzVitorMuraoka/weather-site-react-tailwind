@@ -1,23 +1,29 @@
-
-
-
 type PrincipalInformationsProps = {
-    localName: string;
-    countryName: string;
-    pop: number;
-}
-const PrincipalInformations = ({ localName, countryName, pop }: PrincipalInformationsProps) => {
-    return (
-        <div className="">
-            <h1 className="flex items-baseline text-white font-bold text-4xl">
-                {localName || "Carregando"}
-                <span className="mx-5 text-white text-base font-light align-baseline">{countryName}</span>
-            </h1>
-            <span className="inline-block mt-4 text-base font-normal text-white">Probabilidade de chuva: {pop}%</span>
-        </div>
+  localName: string;
+  countryName: string;
+  pop: number;
+};
+const PrincipalInformations = ({
+  localName,
+  countryName,
+  pop,
+}: PrincipalInformationsProps) => {
+  return (
+    <div className="flex-col justify-center items-center">
+      <h1 className="text-white font-bold text-4xl custom-mdp:flex custom-mdp:items-baseline">
+        {localName || "Carregando"}
+        <span className="hidden text-center text-white text-base font-light custom-mdp:block align-baseline mx-5">
+          {countryName}
+        </span>
+      </h1>
+      <div className=" text-center text-white text-base font-light custom-mdp:hidden ">
+        {countryName}
+      </div>
+      <span className="hidden mt-4 text-base font-normal text-white custom-mdp:inline-block">
+        Probabilidade de chuva: {pop}%
+      </span>
+    </div>
+  );
+};
 
-
-    )
-}
-
-export default PrincipalInformations
+export default PrincipalInformations;

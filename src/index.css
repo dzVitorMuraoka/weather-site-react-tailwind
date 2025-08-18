@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.scrollbar-hide::-webkit-scrollbar{
+  display: none;
+}
+.scrollbar-hide{
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+@media (min-width: 1290px) {
+  .grid-custom-layout {
+    display: grid;
+    grid-template-columns: 120px 1fr 1fr;
+  }
+}

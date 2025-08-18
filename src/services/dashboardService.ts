@@ -1,6 +1,6 @@
 import type { dashboardDTO } from "../types/dashboard";
 import { fetchHourlyForecast } from "./fetchHourlyForecast";
-import { fetchOpenWeatherData } from "./openWeatherAPI";
+import { fetchOpenWeatherData, sunriseHour } from "./openWeatherAPI";
 import { fetchRestCountriesApi } from "./restCountriesAPI";
 import { fetchTomorrowIoData } from "./tomorrowIoAPI";
 import { degreesOfUV } from "./tomorrowIoAPI";
@@ -31,7 +31,11 @@ export async function getWeatherData(location: string): Promise<dashboardDTO> {
     uvDegree: degreesOfUV(tomorrowIo.uvIndex),
     temperatureApparent: Math.trunc(tomorrowIo.temperatureApparent),
     humidity: tomorrowIo.humidity,
-    sunset: sunSetHour(openWeather.sunset),
+    sunrise: openWeather.sunrise,
+    sunset: openWeather.sunset,
+    formattedSunset: sunSetHour(openWeather.sunset),
+    formattedSunrise: sunriseHour(openWeather.sunrise),
     airQuality: degreeofAirQ(airQuality.overall_aqi),
+    weatherCode: tomorrowIo.weatherCode,
   };
 }

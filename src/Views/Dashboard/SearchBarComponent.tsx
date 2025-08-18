@@ -14,7 +14,7 @@ const SearchBarComponent = ({ searchIcon, onSearch }: SearchBarProps) => {
 
     return (
         <form
-            className="relative flex justify-center w-full rounded-lg mt-4 shadow-md"
+            className="relative flex justify-center w-full max-w-[1190px] rounded-lg mt-4 shadow-md"
         >
 
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">

@@ -1,12 +1,11 @@
 type ClimateProps ={
-    climateCondition: string;
+    weatherIcon: string;
     description: string;
 }
 
-const ClimateIconAndDescription = ({climateCondition, description}:ClimateProps) => {
+const ClimateIconAndDescription = ({weatherIcon, description}:ClimateProps) => {
 
-if(!description) 
- return <span className="text-white font-medium text-2xl">Nenhuma cidade localizada</span>
+  
 
 function toUpperCaseFirstLetter(text:string):string{
     if(text === "") return "";
@@ -19,9 +18,9 @@ function toUpperCaseFirstLetter(text:string):string{
 
   return (
    
-    <div  className="flex-col flex items-center ">
-     <img className="size-44"
-     src={climateCondition}
+    <div  className="flex-col flex items-center justify-center custom-mdp:gap-2">
+     <img className="size-36"
+     src={weatherIcon}
      /> 
      <span className="text-center text-white font-normal">{toUpperCaseFirstLetter(description)}</span>
    

@@ -4,4 +4,5 @@ export interface tomorrowIoDTO{
     temperatureApparent: number;
     humidity: number;
     uvIndex: number;
+    weatherCode: number;
 }

@@ -1,29 +1,18 @@
 type HourlyItemProps = {
-    sun: string;
-    temp: number;
-    hour: string;
+  icon: string;
+  temp: number;
+  hour: string;
+};
+const HourlyItem = ({ icon, hour, temp }: HourlyItemProps) => {
+  return (
+    <div className="flex flex-col items-center gap-3 custom-md:gap-4  bg-bg-containers h-min w-20 custom-md:w-28 rounded-xl">
+      <span className="mt-2 text-white text-xl font-semibold">{hour}</span>
 
-}
-const HourlyItem = ({ sun, hour, temp }: HourlyItemProps) => {
+      <img className="w-12 h-12" src={icon} />
 
-    return (
-        <div>
+      <div className="mb-2 text-white text-xl font-bold">{temp} °C</div>
+    </div>
+  );
+};
 
-            <div
-                className="flex flex-col items-center gap-4 bg-bg-containers h-min w-28 rounded-xl">
-
-                <span className="mt-2 text-white text-xl font-semibold">{hour}</span>
-
-                <img className="w-12 h-12"
-                    src={sun}/>
-
-                <div className="mb-2 text-white text-xl font-bold">{temp} °C
-                </div>
-
-            </div>
-
-        </div>
-    )
-}
-
-export default HourlyItem
+export default HourlyItem;

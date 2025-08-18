@@ -2,6 +2,7 @@ export interface forecastEntryDTO {
   time: string;
   values: {
     temperature: number;
+    weatherCode:number;  
   };
 }
 
